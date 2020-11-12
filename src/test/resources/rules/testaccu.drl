@@ -1,0 +1,9 @@
+package rules;
+dialect  "mvel"
+import com.pht.drools.entity.Senor
+
+rule "testaccu"
+    when $avg :Number() from accumulate(Senor(num>10&&$num:num),average($num))
+    then
+        System.out.println("大于10的平均温度为"+$avg);
+end

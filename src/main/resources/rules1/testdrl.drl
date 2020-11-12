@@ -1,0 +1,13 @@
+package com.pht.drools
+import java.math.BigDecimal
+global  java.util.List list
+rule "testdrl"
+     dialect "java"
+    when
+       $bds : BigDecimal()
+       eval($bds.compareTo(BigDecimal.ZERO)>0)
+    then
+    list.add($bds);
+end
+
+
