@@ -28,7 +28,7 @@
         <filter-name>SpringCharacterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+    <!--扫描spring的配置通过加载springd的配置信息启动spring 例如SpringCharacterEncodingFilter：contextConfigLocation-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>

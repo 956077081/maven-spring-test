@@ -18,10 +18,12 @@ import java.math.BigDecimal;
  declare Location
      thing : String
      location : String
+
  end
 
  rule "Pune Medicine Item"
      when item : ItemCity (purchaseCity == ItemCity.City.PUNE, typeofItem == ItemCity.Type.MEDICINES)
+
      then BigDecimal tax = new BigDecimal(0.0); item.setLocalTax(tax.multiply(item.getSellPrice()));
      System.out.println(printmessage("测试打印！！！！"));
  end

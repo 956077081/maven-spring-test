@@ -5,7 +5,11 @@ import org.apache.ibatis.javassist.runtime.Inner;
 import org.drools.core.impl.InternalKnowledgeBase;
 import org.drools.core.impl.KnowledgeBaseFactory;
 import org.junit.Test;
+import org.kie.api.KieServices;
+import org.kie.api.builder.KieBuilder;
+import org.kie.api.internal.utils.KieService;
 import org.kie.api.io.ResourceType;
+import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.internal.builder.KnowledgeBuilder;
 import org.kie.internal.builder.KnowledgeBuilderError;
@@ -23,7 +27,7 @@ import java.util.List;
 
 public class DroolTest {
     public static void main(String[] args) throws Exception {
-        File file = new File("D:\\javaproject\\重构\\mavenrtest2\\src\\main\\java\\com\\pht\\drools\\testdrl.drl");
+        File file = new File("D:\\文档\\新建文件夹\\吴江\\风控方案和决策文件\\借款人规则文件\\3.0\\WJRCB_JK3.0_额度计算_决策表.xls");
         FileReader fileInputStream = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileInputStream);
         String line;
@@ -88,6 +92,8 @@ public class DroolTest {
     }
 
     private static InternalKnowledgeBase readKnowledgeBase() throws Exception {
+        KieServices kieServices = KieServices.Factory.get();
+
         KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
         kbuilder.add(ResourceFactory.newFileResource("D:\\javaproject\\重构\\mavenrtest2\\src\\main\\java\\com\\pht\\drools\\Pune.drl"), ResourceType.DRL);
         kbuilder.add(ResourceFactory.newFileResource("D:\\javaproject\\重构\\mavenrtest2\\src\\main\\java\\com\\pht\\drools\\Nagpur.drl"), ResourceType.DRL);
@@ -102,4 +108,5 @@ public class DroolTest {
         kbase.addPackages(kbuilder.getKnowledgePackages());
         return kbase;
     }
+
 }
