@@ -20,7 +20,8 @@ public class TestMain {
                 "map.'with-dash-signs-and-single-quotes' = \"ALLOWED\"\n" +
                 "\n" +
                 "assert map.\"an identifier with a space and double quotes\" == \"ALLOWED\"\n" +
-                "assert map.'with-dash-signs-and-single-quotes' == \"ALLOWED\"";
+                "assert map.'with-dash-signs-and-single-quotes' == \"ALLOWED\" ;" +
+                "return 1";
         GroovyShell  groovyShell =new GroovyShell();
         Object evaluate = groovyShell.evaluate(function1);
         System.out.println(evaluate);
