@@ -75,6 +75,13 @@
         <!--</dependency>-->
       <!--决策表操作-->
         <!-- https://mvnrepository.com/artifact/org.drools/drools-decisiontables -->
+        <!--excel操作-->
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.6</version>
+        </dependency>
 
         <dependency>
             <groupId>org.drools</groupId>
