@@ -5,11 +5,7 @@ class CalcTest {
         def test = new CalcTest()
 
     }
-    def returVL(String testname){
-        def map = new HashMap<>()
-        map.put("1","张三疯");
-        map.put("2","斩三疯");
-        map.put("3",testname);
-        return  map.toString();
+    def returVL(String testname,Map param){
+        return param.get("custCode")+"asdasdasd";
     }
 }

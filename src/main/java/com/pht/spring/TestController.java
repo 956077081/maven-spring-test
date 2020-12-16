@@ -13,9 +13,9 @@ public class TestController {
     TestService testService;
     @RequestMapping("/test")
     @ResponseBody
-    public Object getTETS(){
+    public String getTETS(){
         Map dataTest = testService.getDataTest();
-        return dataTest;
+        return dataTest.toString();
     }
 
 }

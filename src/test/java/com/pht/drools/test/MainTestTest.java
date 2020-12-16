@@ -35,13 +35,7 @@ public class MainTestTest {
     }
     @Test
     public void testaccu(){
-        Senor senor1 = new Senor("1",13.4);
-        Senor senor2 = new Senor("1",26.4);
-        Senor senor3 = new Senor("3",30);
-        kieSession.insert(senor1);
-        kieSession.insert(senor2);
-        kieSession.insert(senor3);
-        kieSession.fireAllRules();
+
     }
 
 }
