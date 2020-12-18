@@ -36,15 +36,17 @@ public class PdfOperator {
     public static void main(String[] args) throws Exception {
         //@TODO   pdf赋值问题 setValue失败
         PdfReader pdfReader=new PdfReader("pdf/借款合同测试.pdf");
-        File newPdfFile =new File("D:\\javaproject\\重构\\mavenrtest2\\src\\main\\resources\\pdf\\aaa.pdf");
-        if (!newPdfFile.exists()) {
-            File parent = newPdfFile.getParentFile();
-            if (!parent.exists()) {
-                parent.mkdirs();
-            }
-            newPdfFile.createNewFile();
-        }
-        PdfWriter pdfWriter = new PdfWriter("D:\\javaproject\\重构\\mavenrtest2\\src\\main\\resources\\pdf\\aaa.pdf");
+        File newfile =new File("D:\\javaproject\\重构\\mavenrtest2\\src\\main\\resources\\pdf\\aaa.pdf");
+//        File newPdfFile =new File("D:\\javaproject\\重构\\mavenrtest2\\src\\main\\resources\\pdf\\aaa.pdf");
+//        if (!newPdfFile.exists()) {
+//            File parent = newPdfFile.getParentFile();
+//            if (!parent.exists()) {
+//                parent.mkdirs();
+//            }
+//            newPdfFile.createNewFile();
+//        }
+
+        PdfWriter pdfWriter = new PdfWriter("/pdf/aaa.pdf");
         PdfDocument pdfDocument = new PdfDocument(pdfReader,pdfWriter);
         PdfAcroForm acroForm = PdfAcroForm.getAcroForm(pdfDocument, true);
         String fontStr ="D:\\javaproject\\重构\\mavenrtest2\\src\\main\\resources\\pdf\\simsun.ttc,0";
@@ -82,7 +84,6 @@ public class PdfOperator {
                 System.out.println("签名域");
                 try{
                     byte[] bytes = drawImage("pht的签名！");
-//                    renderFormFieldByImage(pdfDocument,formField,bytes);
                     fillPdfpicture(formField,bytes,pdfDocument);
                 }catch (Exception e){
                     e.printStackTrace();
@@ -220,7 +221,7 @@ public class PdfOperator {
         }
         canvas.restoreState();
     }
-
+    @Deprecated
     private static void renderFormFieldByImage(PdfDocument pdf, PdfFormField formField, byte[] imgData) {
         Rectangle rectangle = formField.getWidgets().get(0).getRectangle().toRectangle(); // 获取表单域的xy坐标
         PdfCanvas canvas = new PdfCanvas(formField.getWidgets().get(0).getPage());
